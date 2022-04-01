@@ -6,6 +6,6 @@
       .text-center class='w-1/2' Buy
       .text-center class='w-1/2' Sell
     .text-3xl.flex
-      = format_rate(exchange_rate.buy, exchange_rate.precision)
+      = format_rate(exchange_rate.buy, 2)
       .font-thin.mx-2 |
-      = format_rate(exchange_rate.sell, exchange_rate.precision)
+      = format_rate(exchange_rate.sell, 2)

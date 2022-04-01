@@ -3,6 +3,13 @@ class ExchangeRateService
     @source = source
   end
 
+  def latest
+    ExchangeRate.currencies.map do |_, v|
+      ExchangeRate.find_by(currency: v, effective_date: Date.today) ||
+        ExchangeRate.find_by(currency: v, effective_date: Date.yesterday)
+    end
+  end
+
   def load_by_date(currency:, date:)
     return unless currency || date
 
