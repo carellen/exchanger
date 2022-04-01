@@ -1,0 +1,12 @@
+.flex.flex-col.mx-auto
+  .w-full.mt-10.flex.justify-center.gap-5.flex-wrap class="md:grid-cols-3 lg:grid-cols-5"
+    = render @today_rates
+
+  = form_with(url: exchange_rates_path, method: :get, class: 'flex mt-5 justify-around gap-2 items-center', data: {turbo_frame: 'rates'}) do |f|
+    = f.select :currency, ExchangeRate.currencies.keys, {}, class: 'rounded border-2 border-sky-200 text-gray-400'
+    = f.date_field :date, class: 'rounded border-2 border-sky-200 text-gray-400'
+    = f.button class: 'group px-5 py-2 w-32 rounded bg-sky-100 text-sky-400'
+      .block class='group-disabled:hidden' Show
+      .hidden class='group-disabled:block' Loading...
+
+  = turbo_frame_tag 'rates', class: 'contents'

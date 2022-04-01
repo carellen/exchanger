@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+eur_today:
+  currency: 0
+  effective_date: <%= Date.today %>
+  precision: 4
+  buy: 123456
+  sell: 123457
+
+usd_today:
+  currency: 1
+  effective_date: <%= Date.today %>
+  precision: 4
+  buy: 234567
+  sell: 234568
+
+eur_yesterday:
+  currency: 0
+  effective_date: <%= Date.yesterday %>
+  precision: 4
+  buy: 123454
+  sell: 123455
+
+usd_yesterday:
+  currency: 1
+  effective_date: <%= Date.yesterday %>
+  precision: 4
+  buy: 234564
+  sell: 234565
+
+eur_last_week:
+  currency: 0
+  effective_date: <%= Date.today.weeks_ago(1) %>
+  precision: 4
+  buy: 123444
+  sell: 123445
+
+usd_last_week:
+  currency: 1
+  effective_date: <%= Date.today.weeks_ago(1) %>
+  precision: 4
+  buy: 234554
+  sell: 234555
